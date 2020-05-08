@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="180" > <!-- Time to refresh, in seconds -->
+  <meta http-equiv="refresh" content="60" > <!-- Time to refresh, in seconds -->
   <title>Fauxmentum</title>
   <link rel="stylesheet" href="style.css">
   <script>
@@ -55,21 +55,9 @@
     <p id="quote"></p>
   </div>
 
-<!--
-  <section>
-    <p> <a id="temperature" href="#" onclick="switchUnits(); return false;" title="Click to switch between metric and imperial units"></a> <span id="weather"> by Morris Vanegas    </span></p>  
-  </section>
--->
-
-<!--
-  <footer>
-    <p> <a id="button" href="#" onclick="myFunction(); return false;" title="Click to switch between hide and display">Toggle Show</a> <a href="http://morrisvanegas.com/forus" target="_blank">Morris Vanegas</a>. Thanks to <a href="https://fourtonfish.com">@fourtonfish</a>. </p>
-  </footer>
--->
 
 <script>
   var weatherData ={
-    //city: document.querySelector("#city"),
     weather: document.querySelector("#weather"),
     temperature: document.querySelector("#temperature"),
     icon: document.querySelector("#icon"),
@@ -96,10 +84,7 @@
   }
 
   function myFunction() {
-    //var x = document.getElementById('city');
     var y = document.getElementById('temperature');
-    //var z = document.getElementById('weather');
-    //if (y.style.display === 'none'){
     if (window.name == 'none'){
     //  x.style.display = 'block';
       y.style.display = 'inline';
@@ -128,32 +113,20 @@
               longitude: response.longitude
             };
 
-            //var cityName = response.city;
-            //if (cityName == "Earth"){
-          // IP-based location detection failed. Let's ask the user where he or she lives.
-          // getWeatherForLocation();
-        //}
-        //else{
               var weatherSimpleDescription = response.weather.simple;
               var weatherDescription = response.weather.description;
               //var weatherId = response.weather.id;
               var weatherIcon = response.weather.icon;
               var weatherTemperature = roundTemperature(response.weather.temperature);
 
-              //var weatherHours = getHours();
-              //var weatherMinutes = getMinutes();
 
               weatherData.temperatureValue = weatherTemperature;
 
-              //loadBackground(position.latitude, position.longitude, weatherSimpleDescription, weatherData.temperatureValue);
+             
               loadBackground(position.latitude, position.longitude, weatherSimpleDescription, weatherTemperature, weatherIcon);
-              //weatherData.city.innerHTML = cityName;
-              //weatherData.weather.innerHTML =  ", " + weatherDescription;
+              
               weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
-              //weatherData.icon.innerHTML = weatherIcon;
-              //weatherData.timeHours.innerHTML = weatherHours + ":" + weatherMinutes;
-
-          //}
+              
         }, false);
 
         xhr.addEventListener("error", function(err){
@@ -168,7 +141,6 @@
         //ADD YOUR WEATHER OWAPI KEY HERE FOLLOWING THE = SIGN
         xhr.open("GET", "http://morrisvanegas.com/cinemagraphs/getlocationandweather.php?owapikey=ba77c7e456cbea8e7cf85ca419304bdc&units=imperial", true);
         
-        //xhr.open("GET", "https://fourtonfish.com/tutorials/weather-web-app/getlocationandweather.php?owapikey=ba77c7e456cbea8e7cf85ca419304bdc&units=imperial", true);
 
         xhr.send();
       }
@@ -277,17 +249,6 @@
     return i;
   }
 
-  /*function jsonFlickrApi(data){
-    if (data.photos.pages > 0){
-        var photo = data.photos.photo[0];
-        document.querySelector("body").style.backgroundImage = "url('" + photo.url_l + "')";
-        document.querySelector("#image-source").setAttribute("href", "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id);
-      }
-      else{
-        document.querySelector("body").style.backgroundImage = "url('https://fourtonfish.com/tutorials/weather-web-app/images/default.jpg')";
-        document.querySelector("#image-source").setAttribute("href", "https://www.flickr.com/photos/superfamous/310185523/sizes/o/");
-      }
-  }*/
 
     // START BY GETTING IP, WEATHER, AND LOADING BACKGROUND
     getLocationAndWeather();
@@ -303,13 +264,6 @@
       z.style.display = 'none';
       window.name = 'none';
     }
-
-    //setTimeout(getLocationAndWeather, 1000);
-
-  //var myVar = setInterval(getLocationAndWeather, 5000);
-
-  
-  //sgetLocationAndWeather();
 
 </script>
 
