@@ -54,7 +54,16 @@ footer{
   left: 0%;
   min-width: 100%;
   font-size: .5em;
-  text-align: center;
+  text-align: right;
+  padding-right: 10%;
+}
+
+.temperature_div p {
+  padding-right: 1%;
+}
+
+.temperature_div a {
+  text-decoration: none;
 }
 
 .greeting_div { 
@@ -81,8 +90,8 @@ footer{
 
 
 #temperature{
-  text-decoration: none;
-  border-bottom: 0.05em dotted white;
+  /*text-decoration: none;
+  //border-bottom: 0.05em dotted white;*/
 }
 
 img.bg {
