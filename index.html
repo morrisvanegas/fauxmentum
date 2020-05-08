@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="refresh" content="180" > <!-- Time to refresh, in seconds -->
-  <title>Weather Cinemagraphs</title>
+  <title>Fauxmentum</title>
   <link rel="stylesheet" href="style.css">
   <script>
   (function fixExternalLinks() {
@@ -232,17 +232,17 @@
       var hour = d.getHours();
       var greetingValue = "hi";
       if (hour<12){
-        greetingValue = "Good Morning";
+        greetingValue = "Good morning";
       } else if (hour>=12 && hour<20){
-        greetingValue = "Good Afternoon";
+        greetingValue = "Good afternoon";
       } else if (hour>=20){
-        greetingValue = "Good Evening";
+        greetingValue = "Good evening";
       } 
       document.getElementById("greeting").innerHTML = greetingValue;
 
 
       // update the quote
-      var rndQuoteNumber = getRndInteger(1,10);
+      var rndQuoteNumber = getRndInteger(1,2);
       var client = new XMLHttpRequest();
       client.open('GET', 'foo2.txt');
       client.onreadystatechange = function()

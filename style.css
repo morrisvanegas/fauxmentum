@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  font-size: 2em;
-  text-shadow: 0 0 10px #000;
+  font-size: 1em;
+  /*text-shadow: 0 0 10px #000;*/
   color: #fff;
   background: #888;
   background-repeat: no-repeat;
@@ -45,7 +45,6 @@ footer{
 }
 
 
-
 .temperature_div {
   border: 3px solid green;
   margin: 0;
@@ -70,11 +69,14 @@ footer{
   border: 3px solid green; 
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  max-width: 600px;
+
+  font-size: 3em;
+  font-weight: 500; /* bold is 700, 400 is normal*/
+
 }
 
 .quote_div {
@@ -82,17 +84,14 @@ footer{
   margin: 0;
   position: absolute;
   bottom: 0%;
-  left: 0%;
-  min-width: 100%;
-  font-size: .5em;
-  text-align: center;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  max-width: 40%;
+  font-size: 1em;
 }
 
-
-#temperature{
-  /*text-decoration: none;
-  //border-bottom: 0.05em dotted white;*/
-}
 
 img.bg {
   /* Set rules to fill background */
@@ -110,11 +109,14 @@ img.bg {
 
   /*always push to the back*/
   z-index: -1;
-}
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  filter: brightness(80%);
+}
+/*
+@media screen and (max-width: 1024px) { 
   img.bg {
     left: 50%;
-    margin-left: -512px;   /* 50% */
+    margin-left: -512px;   
   }
 }
+*/
