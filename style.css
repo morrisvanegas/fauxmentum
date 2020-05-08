@@ -1,0 +1,111 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  text-shadow: 0 0 10px #000;
+  color: #fff;
+  background: #888;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+section{
+  min-height: 100%
+}
+
+h1{
+  font-size: 2em;
+  padding: 0 0.3em;
+  line-height: 1em;
+}
+
+h2{
+  font-size: 1.5em;
+  padding: 0 0.3em;
+  line-height: 1em;
+}
+
+
+p{
+  padding: 0 1em;
+}
+
+a{
+  color: #fff;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  float: right;
+  font-size: 0.1em;
+}
+
+
+
+.temperature_div {
+  border: 3px solid green;
+  margin: 0;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  min-width: 100%;
+  font-size: .5em;
+  text-align: center;
+}
+
+.greeting_div { 
+  border: 3px solid green; 
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+}
+
+.quote_div {
+  border: 3px solid green;
+  margin: 0;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  min-width: 100%;
+  font-size: .5em;
+  text-align: center;
+}
+
+
+#temperature{
+  text-decoration: none;
+  border-bottom: 0.05em dotted white;
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /*always push to the back*/
+  z-index: -1;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
