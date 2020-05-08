@@ -52,13 +52,14 @@ footer{
   top: 0%;
   left: 0%;
   min-width: 100%;
-  font-size: .5em;
+  font-size: 1em;
   text-align: right;
   padding-right: 10%;
 }
 
 .temperature_div p {
   padding-right: 1%;
+  font-size: 1em;
 }
 
 .temperature_div a {
@@ -69,7 +70,7 @@ footer{
   border: 3px solid green; 
   margin: 0;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -78,6 +79,14 @@ footer{
   font-weight: 500; /* bold is 700, 400 is normal*/
 
 }
+.greeting_div p { 
+  margin: 0;
+  padding: 0;
+  text-align: center; 
+
+}
+
+
 
 .quote_div {
   border: 3px solid green;

@@ -47,6 +47,7 @@
   </div>
 
   <div class="greeting_div">
+    <p id="time" style="font-size: 3em;">XX:XX</p>
     <p id="greeting">Good Greeting</p>
   </div>
 
@@ -230,15 +231,21 @@
       // update the greeting
       var d = new Date();
       var hour = d.getHours();
+      var minute = d.getMinutes();
       var greetingValue = "hi";
       if (hour<12){
-        greetingValue = "Good morning";
+        greetingValue = "Good morning, Morris.";
       } else if (hour>=12 && hour<20){
-        greetingValue = "Good afternoon";
+        greetingValue = "Good afternoon, Morris.";
       } else if (hour>=20){
-        greetingValue = "Good evening";
+        greetingValue = "Good evening, Morris.";
       } 
       document.getElementById("greeting").innerHTML = greetingValue;
+
+      // update the greeting - time in 24hr format
+      t_hour = addZero(hour);
+      t_minute = addZero(minute);
+      document.getElementById("time").innerHTML = t_hour + ":" + t_minute;
 
 
       // update the quote
@@ -261,6 +268,13 @@
 
   function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min +1) ) + min; /* max and min, inclusive */
+  }
+
+  function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
   }
 
   /*function jsonFlickrApi(data){
