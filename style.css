@@ -116,11 +116,14 @@ img.bg {
 
   filter: brightness(80%);
 }
+
+
 /*
-@media screen and (max-width: 1024px) { 
+Hack for chrome browser
+*/
+@media screen and (max-width: 1440px) { 
   img.bg {
     left: 50%;
-    margin-left: -512px;   
+    margin-left: -720px;   
   }
 }
-*/
