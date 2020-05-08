@@ -2,7 +2,7 @@
 A momentum "extension" for Safari 13+.
 Demo at [MorrisVanegas.com/fauxmentum](http://morrisvanegas.com/fauxmentum/)
 
-![Image description](http://morrisvanegas.com/fauxmentum/fauxmentum_screenshot.png)
+![Image description](http://morrisvanegas.com/fauxmentum/fauxmentum_screenshot.png )
 
 Real talk, this is not really an extension. This is more of a hack for the aesthetics of momentum without much of the functionality (I use todoist and calendar widgets in my notification bar on my Mac). Sean Walker had an extension for Safari before (github.com/ swlkr/ serenity), but it broke with Safari 13 in Catalina. This is my faux momentum extension, ie fauxmentum (get it?!)
 
