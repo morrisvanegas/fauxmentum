@@ -50,6 +50,10 @@
     <p id="greeting">Good Greeting</p>
   </div>
 
+  <div class="quote_div">
+    <p id="quote"></p>
+  </div>
+
 <!--
   <section>
     <p> <a id="temperature" href="#" onclick="switchUnits(); return false;" title="Click to switch between metric and imperial units"></a> <span id="weather"> by Morris Vanegas    </span></p>  
@@ -241,7 +245,8 @@
       document.getElementById("bgImage").src = shortPath + weatherIcon + ".gif";
       //document.getElementById("bgImage").src = shortPath;
 
-        
+      
+      // Get random number for quote and   
 
 
       // update the greeting
@@ -258,6 +263,26 @@
       document.getElementById("greeting").innerHTML = greetingValue;
 
 
+      // update the quote
+      var rndQuoteNumber = getRndInteger(1,10);
+      var client = new XMLHttpRequest();
+      client.open('GET', 'foo2.txt');
+      client.onreadystatechange = function()
+      {
+          if( client.responseText != '' )
+          {
+              var txt = client.responseText.split("\n");
+              document.getElementById("quote").innerHTML = txt[rndQuoteNumber-1];
+              //document.getElementById("line3").innerHTML = txt[2];
+          }
+      }
+      client.send();
+
+
+  }
+
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min +1) ) + min; /* max and min, inclusive */
   }
 
   /*function jsonFlickrApi(data){
