@@ -220,34 +220,12 @@
 
   function loadBackground(lat, lon, weatherTag, weatherTemp, weatherIcon) {  
         
-      //list of descriptions: openweathermap.org/weather-conditions 
-
-      // 0-15 15-30 30-45 45-60 60-75 75-90 90+
-      // default 
-      //document.getElementById("bgImage").src = 'espresso.gif'
-      var shortPath = "gifs";
-        
-      //Temp
-      if (weatherTemp<32){
-        shortPath = "gifs/0-32/";
-      } else if (weatherTemp>=32 && weatherTemp<50){
-        shortPath = "gifs/32-50/";
-      } else if (weatherTemp>=50 && weatherTemp<70){
-        shortPath = "gifs/50-70/";
-      } else if (weatherTemp>=70 && weatherTemp<90){
-        shortPath = "gifs/70-90/";
-      } else if (weatherTemp>=90){
-        shortPath = "gifs/90/";
-      } 
-
-      //shortPath = "gifs/" + weatherIcon + ".gif";
-
-      document.getElementById("bgImage").src = shortPath + weatherIcon + ".gif";
-      //document.getElementById("bgImage").src = shortPath;
-
       
-      // Get random number for quote and   
-
+      // update background image
+      var rndImageNumber = getRndInteger(1,10);
+      bgImagePath = "earthporn/" + rndImageNumber + ".jpg";
+      document.getElementById("bgImage").src = bgImagePath;
+      
 
       // update the greeting
       var d = new Date();
