@@ -47,8 +47,8 @@
   </div>
 
   <div class="greeting_div">
-    <p id="time" style="font-size: 3.5em;">XX:XX</p>
-    <p id="greeting">Good Greeting</p>
+    <p id="time" style="font-size: 3.5em;"></p>
+    <p id="greeting"></p>
   </div>
 
   <div class="quote_div">
@@ -195,7 +195,7 @@
         
       
       // update background image
-      NUMBEROFBACKGROUNDIMAGES = 10;
+      NUMBEROFBACKGROUNDIMAGES = 45;
       var rndImageNumber = getRndInteger(1,NUMBEROFBACKGROUNDIMAGES);
       bgImagePath = "earthporn/" + rndImageNumber + ".jpg";
       document.getElementById("bgImage").src = bgImagePath;
@@ -207,11 +207,11 @@
       var minute = d.getMinutes();
       var greetingValue = "hi";
       if (hour<12){
-        greetingValue = "Good morning, Morris.";
+        greetingValue = "Good morning";
       } else if (hour>=12 && hour<20){
-        greetingValue = "Good afternoon, Morris.";
+        greetingValue = "Good afternoon";
       } else if (hour>=20){
-        greetingValue = "Good evening, Morris.";
+        greetingValue = "Good evening";
       } 
       document.getElementById("greeting").innerHTML = greetingValue;
 
@@ -222,10 +222,10 @@
 
 
       // update the quote
-      NUMBEROFQUOTES = 2;
+      NUMBEROFQUOTES = 118;
       var rndQuoteNumber = getRndInteger(1,NUMBEROFQUOTES);
       var client = new XMLHttpRequest();
-      client.open('GET', 'foo2.txt');
+      client.open('GET', 'quotes.txt');
       client.onreadystatechange = function()
       {
           if( client.responseText != '' )

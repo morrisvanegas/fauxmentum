@@ -3,6 +3,7 @@ Faux momentum extension for safari
 
 Rather than an extension, just add this as your Homepage in Safari preferences. Set New tabs open with: Homepage.
 
+
 # change background images
 Upload images to /earthporn directory. Number images 1.jpg, 2.jpg, 3.jpg, etc. 
 Update NUMBEROFBACKGROUNDIMAGES in index.html to the number of images you have.
