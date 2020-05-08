@@ -195,7 +195,8 @@
         
       
       // update background image
-      var rndImageNumber = getRndInteger(1,10);
+      NUMBEROFBACKGROUNDIMAGES = 10;
+      var rndImageNumber = getRndInteger(1,NUMBEROFBACKGROUNDIMAGES);
       bgImagePath = "earthporn/" + rndImageNumber + ".jpg";
       document.getElementById("bgImage").src = bgImagePath;
       
@@ -221,7 +222,8 @@
 
 
       // update the quote
-      var rndQuoteNumber = getRndInteger(1,2);
+      NUMBEROFQUOTES = 2;
+      var rndQuoteNumber = getRndInteger(1,NUMBEROFQUOTES);
       var client = new XMLHttpRequest();
       client.open('GET', 'foo2.txt');
       client.onreadystatechange = function()
