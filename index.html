@@ -42,7 +42,9 @@
   <img class="bg" id="bgImage" src=""></img>
 
   <div class=temperature_div>
-    <p> <a id="temperature" href="#" onclick="switchUnits(); return false;" title="Click to switch between metric and imperial units"></a> <span id="weather"> by Morris Vanegas    </span></p> 
+    <p> <a id="temperature" href="#" onclick="switchUnits(); return false;" ></a> 
+      <span id="weather">   </span>
+    </p> 
     
   </div>
 
@@ -89,17 +91,17 @@
   function myFunction() {
     //var x = document.getElementById('city');
     var y = document.getElementById('temperature');
-    var z = document.getElementById('weather');
+    //var z = document.getElementById('weather');
     //if (y.style.display === 'none'){
     if (window.name == 'none'){
     //  x.style.display = 'block';
       y.style.display = 'inline';
-      z.style.display = 'inline';
+      //z.style.display = 'inline';
       window.name = 'show';
     } else {
     //  x.style.display = 'none';
       y.style.display = 'none';
-      z.style.display = 'none';
+      //z.style.display = 'none';
       window.name = 'none';
     }
   }
@@ -139,7 +141,7 @@
               //loadBackground(position.latitude, position.longitude, weatherSimpleDescription, weatherData.temperatureValue);
               loadBackground(position.latitude, position.longitude, weatherSimpleDescription, weatherTemperature, weatherIcon);
               //weatherData.city.innerHTML = cityName;
-              weatherData.weather.innerHTML =  ", " + weatherDescription;
+              //weatherData.weather.innerHTML =  ", " + weatherDescription;
               weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
               //weatherData.icon.innerHTML = weatherIcon;
               //weatherData.timeHours.innerHTML = weatherHours + ":" + weatherMinutes;
