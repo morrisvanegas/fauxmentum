@@ -100,7 +100,7 @@ footer{
 img.bg {
   /* Set rules to fill background */
   min-height: 100%;
-  min-width: 1024px;
+  min-width: 1440px;
   
   /* Set up proportionate scaling */
   width: 100%;
@@ -120,10 +120,11 @@ img.bg {
 
 /*
 Hack for chrome browser
-*/
+
 @media screen and (max-width: 1440px) { 
   img.bg {
     left: 50%;
     margin-left: -720px;   
   }
 }
+*/
