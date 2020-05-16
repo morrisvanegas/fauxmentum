@@ -54,13 +54,16 @@ footer{
   font-size: 1em;
   text-align: right;
   padding-right: 10%;
-}
 
+/*
+  border-style: solid;
+  border-color: #0000ff;
+  */
+}
 .temperature_div p {
   padding-right: 1%;
   font-size: 1em;
 }
-
 .temperature_div a {
   text-decoration: none;
 }
@@ -72,16 +75,39 @@ footer{
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
   font-size: 3em;
   font-weight: 500; /* bold is 700, 400 is normal*/
-
+/*
+  border-style: dashed;
+  border-color: red;
+  */
 }
 .greeting_div p { 
   margin: 0;
   padding: 0;
   text-align: center; 
+}
 
+.chart-container {
+  margin: 0;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  /*min-width: 100%;*/
+  font-size: 1em;
+  text-align: left;
+  padding-left: 0%;
+  max-width: 10%;
+  /*
+  position: relative; 
+  margin: auto;
+  height:10vh; 
+  width: 100%;
+  */
+/*
+  border-style: solid;
+  border-color: red;
+  */
 }
 
 .quote_div {
@@ -91,9 +117,12 @@ footer{
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-
   max-width: 30%;
   font-size: 1em;
+/*
+  border-style: solid;
+  border-color: #0000ff;
+  */
 }
 
 

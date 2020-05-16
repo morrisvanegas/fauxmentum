@@ -7,6 +7,7 @@
   <meta http-equiv="refresh" content="60" > <!-- Time to refresh, in seconds -->
   <title>Fauxmentum</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> <!-- Support for radar chart -->
   <script>
   (function fixExternalLinks() {
               function pointToBlank(a) {
@@ -47,16 +48,22 @@
   </div>
 
   <div class="greeting_div">
+    <canvas id="radar-chart"></canvas>
     <p id="time" style="font-size: 3.5em;"></p>
     <p id="greeting"></p>
+
   </div>
 
   <div class="quote_div">
     <p id="quote"></p>
   </div>
 
+  <div class="chart-container">
+    
+  </div>
 
 <script>
+
   var weatherData ={
     weather: document.querySelector("#weather"),
     temperature: document.querySelector("#temperature"),
@@ -249,23 +256,84 @@
       i = "0" + i;
     }
     return i;
+  } 
+
+
+  // START BY GETTING IP, WEATHER, AND LOADING BACKGROUND
+  getLocationAndWeather();
+
+  // HACK FOR KEEPING WEATHER DISPLAYED/HIDDEN BETWEEN REFRESHES OF PAGES
+  // Used the window.name variable, which keeps its value after a refresh (unless the window is closed)
+  var y = document.getElementById('temperature');
+  var z = document.getElementById('weather');
+  //if (y.style.display === 'none'){
+  if (window.name == 'none'){
+  //  x.style.display = 'block';
+    y.style.display = 'none';
+    z.style.display = 'none';
+    window.name = 'none';
   }
 
-
-    // START BY GETTING IP, WEATHER, AND LOADING BACKGROUND
-    getLocationAndWeather();
-
-    // HACK FOR KEEPING WEATHER DISPLAYED/HIDDEN BETWEEN REFRESHES OF PAGES
-    // Used the window.name variable, which keeps its value after a refresh (unless the window is closed)
-    var y = document.getElementById('temperature');
-    var z = document.getElementById('weather');
-    //if (y.style.display === 'none'){
-    if (window.name == 'none'){
-    //  x.style.display = 'block';
-      y.style.display = 'none';
-      z.style.display = 'none';
-      window.name = 'none';
+    // Radar chart  - https://www.chartjs.org/docs/latest/axes/styling.html
+  new Chart(document.getElementById("radar-chart"), {
+    type: 'radar',
+    data: {
+      labels: ["Financial", "Career", "Health", "Relationships", "Growth", "Environment", "Recreation", "Service"], // Dimensions of 5 year plan
+      datasets: [
+        {
+          label: "Year 1",
+          fill: true,
+          backgroundColor: "rgba(255,255,255,.3)", // Color of the fill of the data set
+          borderColor: "rgba(255,255,255,1)", // Color of the line connecting value of labels
+          borderWidth: 3,  //Border width
+          pointBackgroundColor: "rgba(255,255,255,1)", // The color of the dots or points signifying the value
+          pointRadius: 1,    // radius of the points 
+          data: [3,6,2,8,9,5,3,4 ]
+        }
+        /*, {
+          label: "faux example",
+          fill: false,
+          backgroundColor: "rgba(255,255,255,.3)", // Color of the fill of the data set
+          borderColor: "rgba(211,211,211,1)", // Color of the line connecting value of labels
+          borderWidth: 1,  //Border width
+          pointBackgroundColor: "rgba(255,255,255,0)", // The color of the dots or points signifying the value
+          data: [10,10,10,10,10,10,10,10]
+        }*/
+        
+      ]
+    },
+    options: {
+      title: {
+        display: false,
+        text: '5 year plan'
+      },
+      legend: {
+        display: false
+      },
+      scale: {
+        angleLines: {
+          display: false
+        },
+        gridLines: {
+          display: true,
+          color: 'rgba(211,211,211, 1)' // gray color lines
+        },
+        pointLabels: {
+          fontColor: "white",
+          fontFamily: 'Arial',
+          fontSize: 16
+        },
+        ticks: {
+          //suggestedMin: 0,
+          //suggestedMax: 100
+          min: 0, 
+          max: 10,
+          stepSize: 100,
+          display: false  // Do not show the tick labels (10, 20 etc.)
+        }
+      }
     }
+  });
 
 </script>
 
