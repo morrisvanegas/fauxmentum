@@ -38,7 +38,7 @@
 
   
 
-<body>
+<body style="background-color:white;">
 
   <img class="bg" id="bgImage" src=""></img>
 
@@ -283,79 +283,80 @@
   var radarDisplayStatus = false;  // 0 is not shown. 1 = show
   function toggleRadar(){
     if (radarDisplayStatus == false){
+      createRadar();
       document.getElementById("greeting_frame").style.display="none"; 
       document.getElementById("radar_frame").style.display="block"; 
-      //displayRadar(true);
       radarDisplayStatus = true;
       }
     else{
-      //displayRadar(false);
       document.getElementById("greeting_frame").style.display="block"; 
       document.getElementById("radar_frame").style.display="none"; 
       radarDisplayStatus = false;
     }
   }
 
-  // Radar chart  - https://www.chartjs.org/docs/latest/axes/styling.html
-  new Chart(document.getElementById("radar-chart"), {
-    type: 'radar',
-    data: {
-      labels: ["Financial", "Career", "Health", "Relationships", "Growth", "Environment", "Recreation", "Service"],
-      datasets: [
-        {
-          label: "Year 1",
-          fill: true,
-          backgroundColor: "rgba(255,255,255,.3)", // Color of the fill of the data set
-          borderColor: "rgba(255,255,255,1)", // Color of the line connecting value of labels
-          borderWidth: 3,  //Border width
-          pointBackgroundColor: "rgba(255,255,255,1)", // The color of the dots or points signifying the value
-          pointRadius: 1,    // radius of the points 
-          data: [3,6,2,8,9,5,3,4 ]
-        }
-      ]
-    },
-    options: {
-      maintainAspectRatio: true,
-      title: {
-        display: true,
-        text: '5 year plan progress',
-        fontColor: "white",
-        fontFamily: 'Arial',
-        fontSize: 36
+  function createRadar() {
+    // Radar chart  - https://www.chartjs.org/docs/latest/axes/styling.html
+    new Chart(document.getElementById("radar-chart"), {
+      type: 'radar',
+      data: {
+        labels: ["Financial", "Career", "Health", "Relationships", "Growth", "Environment", "Recreation", "Service"],
+        datasets: [
+          {
+            label: "Year 1",
+            fill: true,
+            backgroundColor: "rgba(255,255,255,.3)", // Color of the fill of the data set
+            borderColor: "rgba(255,255,255,1)", // Color of the line connecting value of labels
+            borderWidth: 3,  //Border width
+            pointBackgroundColor: "rgba(255,255,255,1)", // The color of the dots or points signifying the value
+            pointRadius: 1,    // radius of the points 
+            data: [3,6,2,8,9,5,3,4 ]
+          }
+        ]
       },
-      legend: {
-        display: true,
-        position: 'bottom',
-        align: 'start',
-        labels: {
-          fontColor: "white",
-          fontFamily: 'Arial',
-          fontSize: 16,  // 1em
-          boxWidth: 20
-        }
-      },
-      scale: {
-        angleLines: {
-          display: false
-        },
-        gridLines: {
+      options: {
+        maintainAspectRatio: true,
+        title: {
           display: true,
-          color: 'rgba(211,211,211, 1)' // gray color lines
-        },
-        pointLabels: {
+          text: '5 year plan progress',
           fontColor: "white",
           fontFamily: 'Arial',
-          fontSize: 24
+          fontSize: 36
         },
-        ticks: {
-          min: 0, 
-          max: 10,
-          stepSize: 100,
-          display: false  // Do not show the tick labels (10, 20 etc.)
+        legend: {
+          display: true,
+          position: 'bottom',
+          align: 'start',
+          labels: {
+            fontColor: "white",
+            fontFamily: 'Arial',
+            fontSize: 16,  // 1em
+            boxWidth: 20
+          }
+        },
+        scale: {
+          angleLines: {
+            display: false
+          },
+          gridLines: {
+            display: true,
+            color: 'rgba(211,211,211, 1)' // gray color lines
+          },
+          pointLabels: {
+            fontColor: "white",
+            fontFamily: 'Arial',
+            fontSize: 24
+          },
+          ticks: {
+            min: 0, 
+            max: 10,
+            stepSize: 100,
+            display: false  // Do not show the tick labels (10, 20 etc.)
+          }
         }
       }
-    }
-  });
+    });
+  }
 
 
 </script>
