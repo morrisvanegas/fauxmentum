@@ -47,19 +47,21 @@
     </p> 
   </div>
 
-  <div class="greeting_div">
-    <canvas id="radar-chart"></canvas>
+  <div class="greeting_div" id="greeting_frame">
     <p id="time" style="font-size: 3.5em;"></p>
     <p id="greeting"></p>
-
   </div>
 
   <div class="quote_div">
     <p id="quote"></p>
   </div>
 
+  <div class="radar_div" id="radar_frame" >
+    <canvas id="radar-chart" style=""></canvas>
+  </div>
+
   <div class="chart-container">
-    
+    <img src="radar.png" height="150" size="150" onclick="toggleRadar(); return false;">
   </div>
 
 <script>
@@ -199,8 +201,6 @@
     }
 
   function loadBackground(lat, lon, weatherTag, weatherTemp, weatherIcon) {  
-        
-      
       // update background image
       NUMBEROFBACKGROUNDIMAGES = 45;
       var rndImageNumber = getRndInteger(1,NUMBEROFBACKGROUNDIMAGES);
@@ -244,6 +244,9 @@
       }
       client.send();
 
+      // update display of radar chart
+      document.getElementById("radar_frame").style.display="none"; 
+
 
   }
 
@@ -274,11 +277,28 @@
     window.name = 'none';
   }
 
-    // Radar chart  - https://www.chartjs.org/docs/latest/axes/styling.html
+
+  var radarDisplayStatus = false;  // 0 is not shown. 1 = show
+  function toggleRadar(){
+    if (radarDisplayStatus == false){
+      document.getElementById("greeting_frame").style.display="none"; 
+      document.getElementById("radar_frame").style.display="block"; 
+      //displayRadar(true);
+      radarDisplayStatus = true;
+      }
+    else{
+      //displayRadar(false);
+      document.getElementById("greeting_frame").style.display="block"; 
+      document.getElementById("radar_frame").style.display="none"; 
+      radarDisplayStatus = false;
+    }
+  }
+
+  // Radar chart  - https://www.chartjs.org/docs/latest/axes/styling.html
   new Chart(document.getElementById("radar-chart"), {
     type: 'radar',
     data: {
-      labels: ["Financial", "Career", "Health", "Relationships", "Growth", "Environment", "Recreation", "Service"], // Dimensions of 5 year plan
+      labels: ["Financial", "Career", "Health", "Relationships", "Growth", "Environment", "Recreation", "Service"],
       datasets: [
         {
           label: "Year 1",
@@ -290,16 +310,6 @@
           pointRadius: 1,    // radius of the points 
           data: [3,6,2,8,9,5,3,4 ]
         }
-        /*, {
-          label: "faux example",
-          fill: false,
-          backgroundColor: "rgba(255,255,255,.3)", // Color of the fill of the data set
-          borderColor: "rgba(211,211,211,1)", // Color of the line connecting value of labels
-          borderWidth: 1,  //Border width
-          pointBackgroundColor: "rgba(255,255,255,0)", // The color of the dots or points signifying the value
-          data: [10,10,10,10,10,10,10,10]
-        }*/
-        
       ]
     },
     options: {
@@ -321,11 +331,9 @@
         pointLabels: {
           fontColor: "white",
           fontFamily: 'Arial',
-          fontSize: 16
+          fontSize: 24
         },
         ticks: {
-          //suggestedMin: 0,
-          //suggestedMax: 100
           min: 0, 
           max: 10,
           stepSize: 100,
@@ -334,6 +342,7 @@
       }
     }
   });
+
 
 </script>
 

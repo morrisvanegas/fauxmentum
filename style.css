@@ -77,15 +77,34 @@ footer{
   transform: translate(-50%, -50%);
   font-size: 3em;
   font-weight: 500; /* bold is 700, 400 is normal*/
-/*
+
   border-style: dashed;
-  border-color: red;
-  */
+  border-color: blue;
+  
 }
 .greeting_div p { 
   margin: 0;
   padding: 0;
   text-align: center; 
+}
+
+.radar_div { 
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 35%;
+  
+  /*
+  min-width: 20%;
+  max-width: 80%;
+  max-height: 80%;*/
+
+  border-style: dashed;
+  border-color: red;
+  
 }
 
 .chart-container {
